@@ -2,11 +2,12 @@
 #
 require_relative "rack_middleware"
 require_relative "rack_middleware_v2"
+require_relative "rack_middleware_relay"
 
 module Clerk
   class Railtie < ::Rails::Railtie
     initializer "clerk_railtie.configure_rails_initialization" do |app|
-      app.middleware.use Clerk::RackMiddlewareV2
+      app.middleware.use Clerk::RackMiddlewareRelay
     end
   end
 end

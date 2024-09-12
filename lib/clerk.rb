@@ -40,7 +40,7 @@ module Clerk
     # - /foo/bar
     # - /bar
     #
-    attr_accessor :excluded_routes
+    attr_accessor :excluded_routes, :auth_routes
 
     def initialize
       @base_url = ENV.fetch("CLERK_API_BASE", PRODUCTION_BASE_URL)
@@ -54,6 +54,7 @@ module Clerk
       @publishable_key = ENV["CLERK_PUBLISHABLE_KEY"]
 
       @excluded_routes = []
+      @auth_routes = []
     end
   end
 end
